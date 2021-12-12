@@ -83,8 +83,17 @@ public class PlaceOrderController extends BaseController{
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
-    	// TODO: your work
-    	return false;
+    	// Check the phoneNumber has 10 digits
+    	if(phoneNumber.length() != 10) return false;
+    	
+    	// check the phoneNumber contains only number
+    	try {
+    		Integer.parseInt(phoneNumber);
+    	}catch(NumberFormatException e) {
+    		return false;
+    	}
+    	
+    	return true;
     }
     
     public boolean validateName(String name) {
