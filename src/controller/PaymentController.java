@@ -18,7 +18,7 @@ import subsystem.InterbankSubsystem;
  * This {@code PaymentController} class control the flow of the payment process
  * in our AIMS Software.
  * 
- * @author hieud
+ * @author HoangNhatMinh-20183955
  *
  */
 public class PaymentController extends BaseController {

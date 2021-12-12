@@ -12,8 +12,8 @@ import controller.PlaceOrderController;
  * @author HoangNhatMinh-20183955
  *
  */
-class ValidatePhoneNumberTest {
-	
+class ValidateNameTest {
+
 	private PlaceOrderController placeOrderController;
 
 	@BeforeEach
@@ -22,16 +22,17 @@ class ValidatePhoneNumberTest {
 	}
 	
 	@ParameterizedTest
-	@CsvSource({
-		"0898557047,true",
-		"0123,false",
-		"abc945,false",
-		"123456789,false"
+	@CsvSource(value = {
+		"Hoang Nhat Minh,true",
+		"Minh 123,false",
+		"Minh #@$,false",
+		"null,false"
 	})
 
 	@Test
-	public void test(String phone, boolean expected) {
-		boolean isValid = placeOrderController.validatePhoneNumber(phone);
+	void test(String name, boolean expected) {
+		boolean isValid = placeOrderController.validateName(name);
 		assertEquals(expected, isValid);
 	}
+
 }

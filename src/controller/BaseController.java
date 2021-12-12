@@ -8,7 +8,7 @@ import entity.media.Media;
 
 /**
  * This class is the base controller for our AIMS project
- * @author nguyenlm
+ * @author HoangNhatMinh-20183955
  */
 public class BaseController {
     

@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import entity.cart.Cart;
 import entity.cart.CartMedia;
@@ -17,7 +19,7 @@ import views.screen.popup.PopupScreen;
 
 /**
  * This class controls the flow of place order usecase in our AIMS project
- * @author nguyenlm
+ * @author HoangNhatMinh-20183955
  */
 public class PlaceOrderController extends BaseController{
 
@@ -83,10 +85,10 @@ public class PlaceOrderController extends BaseController{
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
-    	// Check the phoneNumber has 10 digits
     	if(phoneNumber.length() != 10) return false;
     	
-    	// check the phoneNumber contains only number
+    	if(!phoneNumber.startsWith("0")) return false;
+    	
     	try {
     		Integer.parseInt(phoneNumber);
     	}catch(NumberFormatException e) {
@@ -97,13 +99,11 @@ public class PlaceOrderController extends BaseController{
     }
     
     public boolean validateName(String name) {
-    	// TODO: your work
-    	return false;
+    	return name != null && name.matches("^[ a-zA-Z]*$");   	
     }
     
     public boolean validateAddress(String address) {
-    	// TODO: your work
-    	return false;
+    	return address != null && address.matches("^[ a-zA-Z0-9]*$");  
     }
     
 
